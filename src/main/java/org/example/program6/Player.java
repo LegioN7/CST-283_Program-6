@@ -176,7 +176,11 @@ public abstract class Player {
      * @return true if the player meets the GPA requirements, false otherwise
      */
     public boolean meetsGPARequirements() {
-        return !(GPA >= 2.3);
+        if (GPA >= 2.3) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**

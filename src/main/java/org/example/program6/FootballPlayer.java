@@ -51,7 +51,7 @@ public class FootballPlayer extends Player {
     @Override
     public boolean isCandidate() {
         // Check if player meets GPA requirements
-        if (meetsGPARequirements()) {
+        if (!meetsGPARequirements()) {
             return false;
         }
 
