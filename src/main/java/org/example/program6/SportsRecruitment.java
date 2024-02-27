@@ -50,18 +50,17 @@ package org.example.program6;
 
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * SportsRecruitment Class
@@ -149,9 +148,30 @@ public class SportsRecruitment extends Application {
         // Create the button
         Button button = new Button("Process File");
         // Set the action for the button to load the list of players
-        button.setOnAction(event -> loadList());
+        button.setOnAction(event -> areYouSureYouWantToLoadDataAlert());
         // Return the button
         return button;
+    }
+
+    /**
+     * Creates an alert to confirm if the user wants to load the data.
+     */
+    private void areYouSureYouWantToLoadDataAlert() {
+        // Create an alert dialog
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        // Set the title of the alert
+        alert.setTitle("Load Data");
+        // Set the header text of the alert
+        alert.setHeaderText(null);
+        // Set the message for the alert
+        // Messing around with a fun alert message for Mr. Klingler.
+        alert.setContentText("Are you sure you want to load the data Mr.Klingler?");
+        // Wait for the user to close the alert and capture the result
+        Optional<ButtonType> result = alert.showAndWait();
+        // If the user confirms, load the list of players
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            loadList();
+        }
     }
 
     /**
@@ -163,9 +183,30 @@ public class SportsRecruitment extends Application {
         // Create the button
         Button button = new Button("Exit");
         // Set the action for the button to exit the application
-        button.setOnAction(event -> System.exit(0));
+        button.setOnAction(event -> areYouSureExitAlert());
         // Return the button
         return button;
+    }
+
+    /**
+     * Creates an alert to confirm if the user wants to exit the application.
+     */
+    private void areYouSureExitAlert() {
+        // Create an alert dialog
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        // Set the title of the alert
+        alert.setTitle("Exit");
+        // Set the header text of the alert
+        alert.setHeaderText(null);
+        // Set the message for the alert
+        alert.setContentText("Are you sure you want to exit?");
+        // Wait for the user to close the alert and capture the result
+        Optional<ButtonType> result = alert.showAndWait();
+        // If the user confirms, exit the application
+        // AWESOME - I was able to get this to work.
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            Platform.exit();
+        }
     }
 
     /**
