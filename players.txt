@@ -1,0 +1,11 @@
+F Abe_Washington  63 180 3.77 3.9
+F John_Smith      74 215 3.03 4.8
+H Joe_Canada      69 175 2.44  18  25 33
+F Jack_Sprat      77 260 2.85 4.2
+V Jane_Doe        73 144 3.66   6  12
+H Igor_Thugman    66 190 1.55   3 126 28
+V IM_Spiker       75 150 3.20   2  18
+H Skater_Bob      68 160 2.40  16   9 41
+H T_KlingLing     72 220 1.98  20  10 62
+V Jen_Fuller      67 130 3.98   5   8
+H Jessie_James    70 170 3.05  18   4 52
